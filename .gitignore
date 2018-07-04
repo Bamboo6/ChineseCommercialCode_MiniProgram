@@ -1,0 +1,15 @@
+*
+!*.*
+!*/
+.DS_Store
+created
+update
+delete
+text
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+/tools
+/gitscripts
+/.vscode
+/server

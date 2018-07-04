@@ -1,0 +1,29 @@
+<!-- index.wxml -->
+<!-- <scroll-view scroll-y> -->
+<view class='container'>
+  
+  <view class='title'>
+      标准电码查询手册
+    </view>
+  
+  <view class='search-box'>
+    <input type='text' placeholder='输入汉字以查询对应电码' placeholder-class="placeholder" confirm-type='search'></input>
+    <image src='/pages/images/search-2.png' class='search' bindtap='search'></image>
+  </view>
+
+  <view class='result-box'>
+    <view class='result-box-item'>
+      <text>原文：</text>
+      <textarea>asdasd</textarea>
+    </view>
+
+    <view class='result-box-item'>
+      <text>译文：</text>
+      <textarea>adss</textarea>
+    </view>
+  </view>
+
+  <include src="/pages/template/template-remark.wxml" />
+ 
+</view>
+<!-- </scroll-view> -->

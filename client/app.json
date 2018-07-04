@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/code/code"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#2CB2F1",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/text-4.png",
+        "iconPath": "pages/images/text-2.png",
+        "pagePath": "pages/index/index",
+        "text": "汉字→电码"
+      },
+      {
+        "selectedIconPath": "pages/images/calculator-4.png",
+        "iconPath": "pages/images/calculator-2.png",
+        "pagePath": "pages/code/code",
+        "text": "电码→汉字"
+      }
+    ]
+  }
+}

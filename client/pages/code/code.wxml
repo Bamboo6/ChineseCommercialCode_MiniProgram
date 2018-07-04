@@ -1,0 +1,23 @@
+<!-- pages/code/code.wxml -->
+<!-- <scroll-view scroll-y> -->
+<view class='container'>
+  <view class='title'>标准电码查询手册</view>
+
+    <view class='search-box'>
+      <input type='text' placeholder='输入电码以查询对应汉字' placeholder-class="placeholder" confirm-type='search'></input>
+      <image src='/pages/images/search-2.png' class='search' bindtap='search'></image>
+    </view>
+
+    <view class='result-box'>
+      <view class='result-box-item'>
+        <text>原文：</text>
+      </view>
+      <view class='result-box-item'>
+        <text>译文：</text>
+      </view>
+    </view>
+
+    <include src="/pages/template/template-remark.wxml" />
+
+</view>
+<!-- </scroll-view> -->
