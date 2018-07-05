@@ -1,10 +1,9 @@
 <!-- index.wxml -->
-<!-- <scroll-view scroll-y> -->
 <view class='container'>
   
   <view class='title'>
-      标准电码查询手册
-    </view>
+    <text>标准电码查询手册</text>
+  </view>
   
   <view class='search-box'>
     <input type='text' placeholder='输入汉字以查询对应电码' placeholder-class="placeholder" confirm-type='search'></input>
@@ -14,16 +13,15 @@
   <view class='result-box'>
     <view class='result-box-item'>
       <text>原文：</text>
-      <textarea>asdasd</textarea>
+      <text></text>
     </view>
 
     <view class='result-box-item'>
       <text>译文：</text>
-      <textarea>adss</textarea>
+      <text></text>
     </view>
   </view>
 
   <include src="/pages/template/template-remark.wxml" />
  
 </view>
-<!-- </scroll-view> -->
