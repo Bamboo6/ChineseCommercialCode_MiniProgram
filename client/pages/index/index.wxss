@@ -58,16 +58,14 @@
   flex: 1 0 auto;
 }
 
-.result-box text {
-  color: #4F95FF;
-  text-align: left;
-}
-
 .result-box-item {
   padding: 30rpx 0;
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
+  display:block;
+  color: #4F95FF;
+  text-align: left;
 }
 
 .result-box textarea {

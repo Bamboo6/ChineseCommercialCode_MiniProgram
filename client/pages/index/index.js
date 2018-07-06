@@ -1,82 +1,110 @@
 //index.js
-//获取应用实例
-const app = getApp()
-
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    src: [
-      '/pages/images/search.png',
-      '/pages/images/search-2.png'
-    ],
+    original: "",
+    code: "",
+    classify: "co",
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  confirm: function (e) {
+    this.setData({
+      original: e.detail.value
     })
   },
 
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
+  search: function (e) {
+    var arr = "";
+    var str = this.data.original.toString();
+    if (!this.data.original.trim()) {
+      return
+    }
+    if (this.data.original.length > 1) {
+      var split = str.split("");
+    }
+    for (var i = 0; i < split.length; i++) {
+      var char = split[i];
+      wx.request({
+        url: 'https://llm2isay.qcloud.la/search.php',
+        data: {
+          chinese: char,
+          classify: this.data.classify,
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: (res) => {
+          console.log("chinese: " + char);
+          console.log("split: " + split.length);
+          arr = arr+res.data[0].code;
           this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+            array: arr,
           })
+          console.log("res--");
+          console.log(res.data[0].code);
         }
       })
     }
+
+
   },
 
-  // 边栏菜单动画
-  setMenuNatural: function (normal) {
-    var animationW = wx.createAnimation({
-      duration: 200
-    });
-    var animationM = wx.createAnimation({
-      duration: 200
-    });
-    var menuStatus = false;
-    if (this.data.gogostatus) {
-      animationW.width("100%").height("100vh").top("0vh").left("0%").step();
-      animationM.right("40%").step();
-      menuStatus = false;
-    } else {
-      animationW.width("90%").height("100vh").top("0vh").left("-100%").step();
-      animationM.right("0%").step();
-      menuStatus = true;
-    }
-    this.setData({
-      animationW: animationW.export(),
-      animationM: animationM.export(),
-      gogostatus: menuStatus,
-      cityMenus: common.getCityList()
-    })
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
 
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

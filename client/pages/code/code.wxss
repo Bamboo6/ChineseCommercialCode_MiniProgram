@@ -57,6 +57,7 @@
 }
 
 .result-box text {
+  
   color: #4F95FF;
   text-align: left;
 }

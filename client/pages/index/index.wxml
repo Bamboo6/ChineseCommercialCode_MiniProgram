@@ -1,24 +1,21 @@
 <!-- index.wxml -->
 <view class='container'>
   
-  <view class='title'>
-    <text>标准电码查询手册</text>
-  </view>
+  <view class='title'>标准电码查询手册</view>
   
   <view class='search-box'>
-    <input type='text' placeholder='输入汉字以查询对应电码' placeholder-class="placeholder" confirm-type='search'></input>
+    <input type='text' bindinput='confirm' value='{{original}}' placeholder='输入汉字以查询对应电码' placeholder-class="placeholder" confirm-type='search'></input>
     <image src='/pages/images/search-2.png' class='search' bindtap='search'></image>
   </view>
 
   <view class='result-box'>
     <view class='result-box-item'>
       <text>原文：</text>
-      <text></text>
+      <text>{{original}}</text>
     </view>
-
     <view class='result-box-item'>
       <text>译文：</text>
-      <text></text>
+      <text style="word-break: break-all">{{array}}</text>
     </view>
   </view>
 
